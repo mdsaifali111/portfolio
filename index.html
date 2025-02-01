@@ -1,227 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saif Ali - Web Developer & Content Creator</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-   <link rel="stylesheet" href="styles.css"> 
-</head>
-<style> 
-/* Custom Styles */
-body {
-    font-family: 'Arial', sans-serif;
-}
-
-#hero {
-    background-color: #212529;
-    background-size: cover;
-    background-position: center;
+    <title>John Doe | Portfolio</title>
     
-}
+    <!-- Frameworks -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    .bg-primary {
-background-color: #212529;
-padding-top: 30;
+<script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #0a192f;
+            --dark: #020c1b;
+            --text: #ccd6f6;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(45deg, var(--secondary), var(--dark));
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary);
+            transition: width 1s ease;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 20px;
+            bottom: -35px;
+            width: 3px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,255,136,0.1);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--dark) !important;
+        }
+
+
+
+
+    .primary-dark {
+        background: rgba(0, 255, 136, 0.1);
+        border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+    
+    .metric-card {
+        background: rgba(255,255,255,0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .metric-card:hover {
+        transform: translateX(5px);
+        border-left: 3px solid var(--primary);
+    }
+    
+    .progress-bar {
+        transition: width 1s ease-in-out;
+    }
+
+   .timeline {
+        position: relative;
+        padding-left: 40px;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding-left: 30px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        background: var(--primary);
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: 25px;
+        bottom: -25px;
+        width: 2px;
+        background: rgba(255,255,255,0.1);
+    }
+
+    .timeline-date {
+        position: absolute;
+        left: -100px;
+        top: 0;
+        color: var(--text-muted);
+        width: 80px;
+        text-align: right;
+    }
+
+    .timeline-content {
+        background: rgba(255,255,255,0.05);
+        padding: 20px;
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .revenue-badge {
+        display: inline-block;
+        background: rgba(0,255,136,0.1);
+        color: var(--primary);
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
         
-    }
-    
-.hero h1, .hero p {
-    animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.card {
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-footer {
-    background-color: #212529;
-}
-
-footer a {
-    text-decoration: none;
-    color: #f8f9fa;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-</style>
-  
+    </style>
+</head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Saif Ali</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero text-center text-white bg-dark py-5" id="hero">
-        <div class="container">
-            <h1 class="display-4 animate__animated animate__fadeIn">Hi, I'm Saif Ali</h1>
-            <p class="lead animate__animated animate__fadeIn animate__delay-1s">Web Developer | Content Creator | Helping Students</p>
-            <a href="#about" class="btn btn-light btn-lg mt-3 animate__animated animate__fadeIn animate__delay-2s">Learn More</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">About Me</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Hello, I'm Saif Ali, a passionate web developer and content creator. I help students by providing
-                        valuable resources and tutorials related to web development, SEO, graphic design, and app development.</p>
-                    <p>I also offer services like web design, SEO optimization, graphic design, earning methods consultation, and app development.</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="image.png" alt="Saif Ali" class="img-fluid rounded-circle shadow">
+<!-- Hero Section -->
+<section class="hero d-flex align-items-center" data-aos="fade-up">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-3 fw-bold mb-4">John Doe</h1>
+                <p class="lead mb-4">Full Stack Developer & UI Designer</p>
+                <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                    <a href="#contact" class="btn btn-lg btn-primary">Hire Me</a>
+                    <a href="#projects" class="btn btn-lg btn-outline-primary">Projects</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">My Skills</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Web Development</h5>
-                    <p>HTML, CSS, JavaScript, Bootstrap, React, Node.js</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>SEO & Digital Marketing</h5>
-                    <p>SEO Optimization, Google Analytics, Social Media Marketing, SEM</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>App Development</h5>
-                    <p>Flutter, Android, iOS, React Native</p>
-                </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <img src="profile.jpg" alt="Profile" 
+                     class="img-fluid rounded-circle shadow-lg" 
+                     style="max-width: 400px; border: 3px solid var(--primary)">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">My Projects</h2>
-            <div class="row">
-                <!-- Project 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?ga=GA1.1.1621938705.1734397784&semt=ais_hybrid/300" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">ecommerce website</h5>
-                            <p class="card-text">technlogy use react js </p>
-                        </div>
+<!-- Skills Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Technical Skills</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-code fa-2x me-3"></i>
+                        <h3 class="mb-0">Frontend Development</h3>
+                    </div>
+                    <div class="skill-bar mb-3">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark">React</span>
+                        <span class="badge bg-dark">Vue.js</span>
+                        <span class="badge bg-dark">TypeScript</span>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://img.freepik.com/free-vector/hand-drawn-blogger-with-laptop_23-2149083968.jpg?ga=GA1.1.1621938705.1734397784&semt=ais_hybrid/300" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">blogging website</h5>
-                            <p class="card-text">artical writer website</p>
-                        </div>
-                    </div>
+            </div>
+            <!-- Add more skill cards -->
+        </div>
+    </div>
+</section>
+
+
+<!-- Skills & Business Metrics Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Skills & Business Metrics</h2>
+        
+        <!-- Revenue Badge -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <div class="card-hover p-3 rounded-3 bg-primary-dark">
+                    <h3 class="mb-0">
+                        <i class="fas fa-rupee-sign me-2"></i>
+                        Current MRR: ₹5,00,000+
+                    </h3>
+                    <p class="mb-0 small text-muted">Consistent growth for 12+ months</p>
                 </div>
-                <!-- Project 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="https://img.freepik.com/free-vector/flat-design-cms-digital-programs_23-2148790016.jpg?ga=GA1.1.1621938705.1734397784&semt=ais_hybrid/300" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">web tools</h5>
-                            <p class="card-text">seo tools, web tools desgin and develop  </p>
+            </div>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="row g-4">
+            <!-- Technical Skills -->
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-code fa-2x me-3"></i>
+                        <h3>Technical Expertise</h3>
+                    </div>
+                    <div class="skill-bar mb-3">
+                        <div class="progress" style="width: 95%"></div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="metric-card p-3 rounded-2 mb-2">
+                                <i class="fas fa-microchip me-2"></i>
+                                Full Stack Development
+                                <span class="badge bg-dark ms-2">Pro</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="metric-card p-3 rounded-2 mb-2">
+                                <i class="fas fa-cloud me-2"></i>
+                                Cloud Architecture
+                                <span class="badge bg-dark ms-2">AWS/GCP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Contact Me</h2>
-            <form id="contactForm">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+            <!-- Content Creation -->
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-video fa-2x me-3"></i>
+                        <h3>Content Creation</h3>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <div class="display-5 fw-bold">250K+</div>
+                                <small class="text-muted">Subscribers</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <div class="display-5 fw-bold">10M+</div>
+                                <small class="text-muted">Monthly Views</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-12 mb-3">
-                        <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-light btn-lg w-100">Send Message</button>
+                    <div class="mt-3">
+                        <span class="badge bg-dark me-2"><i class="fab fa-youtube me-1"></i>YouTube</span>
+                        <span class="badge bg-dark me-2"><i class="fab fa-instagram me-1"></i>Instagram</span>
+                        <span class="badge bg-dark"><i class="fab fa-linkedin me-1"></i>LinkedIn</span>
                     </div>
                 </div>
-            </form>
+            </div>
+
+            <!-- SAAS Metrics -->
+            <div class="col-md-12">
+                <div class="card-hover p-4 rounded-3 mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-chart-line fa-2x me-3"></i>
+                        <h3>SAAS Business Metrics</h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="display-5 fw-bold">1.2K+</div>
+                                <small class="text-muted">Active Customers</small>
+                                <div class="mt-2 small text-success">
+                                    <i class="fas fa-arrow-up"></i> 15% MoM Growth
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="display-5 fw-bold">99.9%</div>
+                                <small class="text-muted">Uptime</small>
+                                <div class="mt-2 small text-primary">
+                                    <i class="fas fa-server"></i> AWS Enterprise
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <div class="display-5 fw-bold">4.9/5</div>
+                                <small class="text-muted">Customer Rating</small>
+                                <div class="mt-2 small text-warning">
+                                    <i class="fas fa-star"></i> 650+ Reviews
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-3 text-center">
-        <p>&copy; 2024 Saif Ali | <a href="https://codesaif.in" class="text-light">codesaif.in</a></p>
-    </footer>
+        <!-- Monetization Methods -->
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <i class="fas fa-wallet fa-3x mb-3 text-success"></i>
+                    <h4>SAAS Revenue</h4>
+                    <div class="progress mt-2">
+                        <div class="progress-bar bg-success" style="width: 65%">65%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <i class="fas fa-link fa-3x mb-3 text-primary"></i>
+                    <h4>Affiliate Income</h4>
+                    <div class="progress mt-2">
+                        <div class="progress-bar bg-primary" style="width: 25%">25%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <i class="fas fa-ad fa-3x mb-3 text-warning"></i>
+                    <h4>Ad Revenue</h4>
+                    <div class="progress mt-2">
+                        <div class="progress-bar bg-warning" style="width: 10%">10%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybB6pDi7IpAa+1kz3sOkl2vHe+Pf8F4gXHg6pE/jr61Dg+B6D" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqDV7jAt4Gzht2/JYy5ySAm0Z2zslQJ0VY0Lk5QxNdtLz" crossorigin="anonymous"></script>
-    <script>
-      // Form validation
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    // Get form data
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let message = document.getElementById('message').value;
 
-    if (name === "" || email === "" || message === "") {
-        alert("Please fill out all fields!");
-    } else {
-        alert("Thank you for your message, " + name + "!");
-        // Reset the form
-        document.getElementById('contactForm').reset();
-    }
+
+<!-- Experience Timeline -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Senior Developer</h3>
+                <p class="text-muted">Tech Corp • 2020-Present</p>
+                <p>Led team development of enterprise applications...</p>
+            </div>
+            <!-- Add more timeline items -->
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Featured Projects</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-hover p-3 rounded-3">
+                    <img src="project1.jpg" class="card-img-top rounded-2" alt="Project 1">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-code-branch me-2"></i>
+                            <h3 class="h5 mb-0">E-commerce Platform</h3>
+                        </div>
+                        <p class="text-muted">Built with React & Node.js</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-sm btn-primary">
+                                Demo <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">
+                                Code <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more project cards -->
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Education</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-university fa-2x me-3"></i>
+                        <div>
+                            <h3 class="h5 mb-0">Computer Science</h3>
+                            <p class="text-muted mb-0">Stanford University</p>
+                            <p class="text-muted small">2016 - 2020</p>
+                        </div>
+                    </div>
+                    <div class="skill-bar mb-3">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark">Algorithms</span>
+                        <span class="badge bg-dark">AI/ML</span>
+                        <span class="badge bg-dark">Networking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Testimonials</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card-hover p-3 rounded-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="client1.jpg" class="rounded-circle me-3" width="50" alt="Client">
+                        <div>
+                            <h4 class="h6 mb-0">Sarah Johnson</h4>
+                            <p class="text-muted small mb-0">CEO @ TechStart</p>
+                        </div>
+                    </div>
+                    <p class="mb-0">"Outstanding work and professional attitude throughout the project."</p>
+                    <div class="mt-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more testimonials -->
+        </div>
+    </div>
+</section>
+
+<!-- Bio Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">About Me</h2>
+        <div class="row g-4 align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="bio-photo.jpg" class="img-fluid rounded-circle shadow-lg" 
+                     alt="Bio Photo" style="max-width: 250px;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-hover p-4 rounded-3">
+                    <p class="lead">Full-stack developer with 5+ years experience building web applications.</p>
+                    <p>Specializing in modern JavaScript frameworks and cloud technologies.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-dev"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Certifications</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <i class="fab fa-google fa-3x mb-3"></i>
+                    <h4 class="h6 mb-1">Google Cloud</h4>
+                    <p class="text-muted small">Professional Architect</p>
+                    <div class="badge bg-dark">2023</div>
+                </div>
+            </div>
+            <!-- Add more certifications -->
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Latest Posts</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card-hover p-3 rounded-3">
+                    <img src="blog1.jpg" class="card-img-top rounded-2" alt="Blog Post">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-tag me-2"></i>
+                            <span class="small text-muted">Web Development</span>
+                        </div>
+                        <h4 class="h5">Modern JavaScript Patterns</h4>
+                        <p class="text-muted small">Learn advanced JS concepts for better code...</p>
+                        <a href="#" class="btn btn-sm btn-primary">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more blog posts -->
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Contact</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form class="card-hover p-4 rounded-3">
+                    <div class="mb-4">
+                        <input type="text" class="form-control bg-dark border-dark text-white" 
+                               placeholder="Name" required>
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" class="form-control bg-dark border-dark text-white" 
+                               placeholder="Email" required>
+                    </div>
+                    <div class="mb-4">
+                        <textarea class="form-control bg-dark border-dark text-white" 
+                                  rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        Send Message <i class="fas fa-paper-plane ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+```html
+<!-- Products & Offerings Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Products & Offerings</h2>
+
+        <!-- SaaS Product Showcase -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-rocket fa-3x me-3 text-primary"></i>
+                        <div>
+                            <h3>Main SaaS Product</h3>
+                            <div class="badge bg-success">Enterprise Edition</div>
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <div class="metric-card p-2 text-center">
+                                <div class="h4 mb-0">1.2K+</div>
+                                <small>Active Companies</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="metric-card p-2 text-center">
+                                <div class="h4 mb-0">₹3.8L</div>
+                                <small>Avg. MRR</small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted">AI-powered business automation platform with 50+ integrations</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-primary me-2">Live Demo</a>
+                        <a href="#" class="btn btn-outline-primary">Case Studies</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-hover p-4 rounded-3 h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-gem fa-3x me-3 text-warning"></i>
+                        <div>
+                            <h3>Premium Content</h3>
+                            <div class="badge bg-primary">5 Courses</div>
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <div class="metric-card p-2 text-center">
+                                <div class="h4 mb-0">15K+</div>
+                                <small>Students</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="metric-card p-2 text-center">
+                                <div class="h4 mb-0">₹1.2L</div>
+                                <small>Monthly Revenue</small>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted">Advanced technical courses with certification programs</p>
+                    <div class="mt-auto">
+                        <a href="#" class="btn btn-warning me-2">View Courses</a>
+                        <a href="#" class="btn btn-outline-warning">Testimonials</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Platforms -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <div class="position-relative">
+                        <i class="fab fa-youtube fa-4x text-danger mb-3"></i>
+                        <div class="badge bg-dark position-absolute top-0 end-0">2024</div>
+                    </div>
+                    <h4>Tech Education Channel</h4>
+                    <div class="d-flex justify-content-center gap-3 my-3">
+                        <div>
+                            <div class="h5 mb-0">250K+</div>
+                            <small>Subscribers</small>
+                        </div>
+                        <div>
+                            <div class="h5 mb-0">5M+</div>
+                            <small>Views/Month</small>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-danger w-100">
+                        <i class="fab fa-youtube me-2"></i>Visit Channel
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <div class="position-relative">
+                        <i class="fas fa-blog fa-4x text-info mb-3"></i>
+                        <div class="badge bg-dark position-absolute top-0 end-0">Featured</div>
+                    </div>
+                    <h4>Technical Blog</h4>
+                    <div class="d-flex justify-content-center gap-3 my-3">
+                        <div>
+                            <div class="h5 mb-0">50K+</div>
+                            <small>Monthly Readers</small>
+                        </div>
+                        <div>
+                            <div class="h5 mb-0">800+</div>
+                            <small>Articles</small>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-info w-100">
+                        <i class="fas fa-book-open me-2"></i>Read Blog
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-hover p-3 text-center rounded-3">
+                    <div class="position-relative">
+                        <i class="fas fa-microphone fa-4x text-success mb-3"></i>
+                        <div class="badge bg-dark position-absolute top-0 end-0">New</div>
+                    </div>
+                    <h4>Tech Podcast</h4>
+                    <div class="d-flex justify-content-center gap-3 my-3">
+                        <div>
+                            <div class="h5 mb-0">100K+</div>
+                            <small>Downloads</small>
+                        </div>
+                        <div>
+                            <div class="h5 mb-0">4.9★</div>
+                            <small>Rating</small>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-success w-100">
+                        <i class="fas fa-podcast me-2"></i>Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Growth Timeline -->
+        <div class="card-hover p-4 rounded-3 mt-5">
+            <h3 class="text-center mb-4">Revenue Growth Journey</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 Q3</div>
+                    <div class="timeline-content">
+                        <h5>First ₹1L Month</h5>
+                        <p>Launched initial SaaS MVP</p>
+                        <div class="revenue-badge">₹1,20,000</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 Q2</div>
+                    <div class="timeline-content">
+                        <h5>Content Monetization</h5>
+                        <p>Added premium courses</p>
+                        <div class="revenue-badge">₹2,80,000</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 Q4</div>
+                    <div class="timeline-content">
+                        <h5>Enterprise Scaling</h5>
+                        <p>Onboarded corporate clients</p>
+                        <div class="revenue-badge">₹5,00,000+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container text-center">
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <a href="#" class="social-link text-white">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="social-link text-white">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link text-white">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p class="mb-0">&copy; 2023 John Doe. All rights reserved</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize animations
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+
+    // Animate progress bars
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.progress').forEach(progress => {
+            const width = progress.style.width;
+            progress.style.width = '0';
+            setTimeout(() => progress.style.width = width, 500);
+        });
+    });
+
+AOS.init({
+    offset: 120,
+    delay: 200,
+    duration: 1000,
+    easing: 'ease',
+    once: true
 });
 
-    </script>
-</body>
 
+    // Animated counters
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.display-5');
+        counters.forEach(counter => {
+            const target = parseInt(counter.innerText.replace(/\D/g,''));
+            let count = 0;
+            const updateCount = () => {
+                const increment = target / 50;
+                count += increment;
+                if(count < target) {
+                    counter.innerText = Math.ceil(count).toLocaleString() + '+';
+                    setTimeout(updateCount, 50);
+                } else {
+                    counter.innerText = target.toLocaleString() + '+';
+                }
+            }
+            updateCount();
+        });
+    });
+
+
+/ Animate timeline items on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        timelineItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'all 0.5s ease';
+            observer.observe(item);
+        });
+    });
+    
+</script>
+</body>
 </html>
