@@ -13,6 +13,17 @@
 <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 
     <style>
+
+ #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background-color: #4caf50; /* Green color for progress */
+      z-index: 99;
+    }
+        
         :root {
             --primary: #00ff88;
             --secondary: #0a192f;
@@ -187,6 +198,9 @@
 </head>
 <body>
 
+<!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+    
 <!-- Hero Section -->
 <section class="hero d-flex align-items-center" data-aos="fade-up">
     <div class="container">
@@ -867,7 +881,19 @@ AOS.init({
     once: true
 });
 
+// Function to calculate scroll progress
+    window.onscroll = function() {
+      updateScrollProgress();
+      toggleBackToTopButton();
+    };
 
+    function updateScrollProgress() {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var scrollPosition = window.scrollY;
+      var scrollPercentage = (scrollPosition / docHeight) * 100;
+
+      document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+    }
     
 </script>
 </body>
