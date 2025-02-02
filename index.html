@@ -194,6 +194,35 @@
         font-weight: bold;
     }
         
+
+.social-link {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .social-link:hover {
+        background: var(--primary);
+        color: var(--dark) !important;
+        transform: translateY(-3px);
+    }
+
+    .form-control {
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary) !important;
+        box-shadow: 0 0 0 3px rgba(0,255,136,0.1);
+    }
+
     </style>
 </head>
 <body>
@@ -835,6 +864,123 @@
 </section>
 
 
+
+<!-- Contact Section -->
+<section class="py-5" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Get in Touch</h2>
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-6">
+                <div class="card-hover p-4 rounded-3">
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control bg-dark text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control bg-dark text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control bg-dark text-white" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control bg-dark text-white" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            Send Message <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-6">
+                <div class="card-hover p-4 rounded-3 h-100">
+                    <h3 class="mb-4">Contact Information</h3>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="social-link me-3">
+                            <i class="fas fa-envelope fa-2x"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:contact@codesaif.in" class="text-decoration-none">
+                                contact@codesaif.in
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="social-link me-3">
+                            <i class="fab fa-whatsapp fa-2x"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/918750577291" 
+                               class="text-decoration-none"
+                               target="_blank">
+                                +91 8750577291
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4 class="mb-3">Social Media</h4>
+                        <div class="d-flex gap-3">
+                            <a href="https://github.com/mdsaifali111" 
+                               class="social-link"
+                               target="_blank"
+                               aria-label="GitHub">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                            <a href="https://twitter.com/mdsaifali111" 
+                               class="social-link"
+                               target="_blank"
+                               aria-label="Twitter">
+                                <i class="fab fa-twitter fa-2x"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/mdsaifali111" 
+                               class="social-link"
+                               target="_blank"
+                               aria-label="LinkedIn">
+                                <i class="fab fa-linkedin fa-2x"></i>
+                            </a>
+                            <a href="https://instagram.com/mdsaifali111" 
+                               class="social-link"
+                               target="_blank"
+                               aria-label="Instagram">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="text-muted small mb-0">
+                            Available for collaborations, consulting, and interesting projects.<br>
+                            Typically respond within 24 hours.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+
+
+
+    
+
+
+
+
+
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container text-center">
@@ -894,6 +1040,15 @@ AOS.init({
       document.getElementById('progress-bar').style.width = scrollPercentage + '%';
     }
     
+
+
+// Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your form submission logic here
+        alert('Message sent successfully!');
+        e.target.reset();
+    });
 </script>
 </body>
 </html>
